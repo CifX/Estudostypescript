@@ -1,0 +1,65 @@
+class Aluno{
+    name: string
+    idade: number
+    h: number
+    sex: string
+    constructor(name: string, idade: number, h: number, sex: string){
+        this.name = name
+        this.idade = idade
+        this.h = h
+        this.sex = sex
+    }
+    static alunos: Aluno[] = []
+    static calcularQuantidades(): number{
+        let total = 0;
+        let somaAltura = 0;
+        let contadorAlunos = 0;
+        for(const aluno of this.alunos){
+            if(aluno.idade > 13 && aluno.h < this.calcularMediaAltura()){
+                total++
+            }
+            somaAltura += aluno.h
+            contadorAlunos++
+        }
+        return total;
+    }
+    static calcularMediaAltura(): number{
+        let somaAltura = 0;
+        let contadorAlunos = 0;
+        for(const aluno of this.alunos){
+            somaAltura += aluno.h
+            contadorAlunos++
+        }
+        return somaAltura / contadorAlunos
+    }
+
+    static maiorAlturaMulheres(): number{
+        let maiorAltura = -1
+        for(const aluno of this.alunos){
+            if(aluno.sex === 'feminino' && aluno.h > maiorAltura){
+                maiorAltura = aluno.h
+            }
+        }
+        return maiorAltura
+    }
+
+    static nomeAlunoNovoHomens(): string{
+        let alunoMaisNovo: Aluno | null = null;
+        for(const aluno of this.alunos){
+            if(aluno.sex === 'masculino' && (alunoMaisNovo === null || aluno.idade < alunoMaisNovo.idade)){
+                alunoMaisNovo = aluno;
+            }
+        }
+        return alunoMaisNovo ? alunoMaisNovo?.name: ''
+    }
+
+    static alunoidadeParOumaisque190(): Aluno | null {
+        let primeiroAluno = ''
+        for(const aluno of this.alunos){
+            if(aluno.idade % 2 == 0 || aluno.idade > 190){
+                return aluno;
+            }
+        }
+        return null
+    }
+}
