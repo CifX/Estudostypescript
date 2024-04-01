@@ -1,0 +1,18 @@
+function ValidarNomeUsuario(nome: string): boolean{
+    if(nome.length < 4 || nome.length > 25){
+        return false;
+    }
+
+    if(!/^[a-zA-Z]/.test(nome)){
+        return false;
+    }
+
+    if(!/^[a-zA-Z0-9_+$]/.test(nome)){
+        return false;
+    }
+
+    if(nome[nome.length - 1] === '_'){
+        return false;
+    }
+    return true;
+}
