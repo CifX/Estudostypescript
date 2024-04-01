@@ -1,0 +1,14 @@
+function PalavraMaisLonga(frase: string): string{
+    const fraseSemCaracteresEsp = frase.replace(/[^\w\s]/g, '');
+
+    const palavras = fraseSemCaracteresEsp.split(' ');
+
+    let palavraMaisLonga = '';
+
+    for(const palavra of palavras){
+        if(palavra.length > palavraMaisLonga.length){
+            palavraMaisLonga = palavra;
+        }
+    }
+    return palavraMaisLonga;
+}
