@@ -1,0 +1,13 @@
+function Organizar(numero: number): number{
+    const digitos = numero.toString().split('');
+
+    const digitosOrdenados = digitos.sort((a, b) => parseInt(b) - parseInt(a))
+
+    const numeroOrdenado = digitosOrdenados.join('')
+
+    const maiorNumero = parseInt(numeroOrdenado)
+
+    return maiorNumero;
+}
+
+console.log(Organizar(86329841));
