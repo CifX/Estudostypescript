@@ -1,0 +1,21 @@
+function quadradoNumeros(n: number, d: number): number{
+    let count = 0;
+    let quadrados = [];
+    for(let i = 0; i <= n; i++){
+        const quadrado = i*i
+        quadrados.push(quadrado)
+    }
+    console.log(`Quadrados de 0 até ${n}: ${quadrados.join(', ')}`)
+
+    for(const quadrado of quadrados){
+        const digits = quadrado.toString().split('')
+
+        for(const digit of digits){
+            if(parseInt(digit) === d){
+                count++
+            }
+        }
+    }
+    return count
+}
+console.log(quadradoNumeros(10,1))
