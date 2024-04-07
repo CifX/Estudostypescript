@@ -1,0 +1,12 @@
+function substituirCaracter(string: string): string{
+    let result = ''
+    for(let i = 0; i < string.length; i++){
+        const caracter = string[i]
+        if(string.indexOf(caracter) === string.lastIndexOf(caracter)){
+            result += '('
+        }else{
+            result += ')'
+        }
+    }
+    return result
+}
