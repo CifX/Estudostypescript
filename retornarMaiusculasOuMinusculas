@@ -1,0 +1,19 @@
+function retornarMaiusculas(string: string): string{
+    string.split('') 
+    let countMaiuscula = 0;
+    let countMinuscula = 0;
+    for(let i = 0; i < string.length; i++){
+        if(string[i] === string[i].toUpperCase()){
+            countMaiuscula++
+        }else{
+            countMinuscula++
+        }
+    }
+    if(countMaiuscula === countMinuscula){
+        return string.toLowerCase()
+    }else{
+        return string.toUpperCase()
+    }
+}
+
+console.log((retornarMaiusculas("PEdrOc")))
